@@ -2,6 +2,7 @@ from frontier.presets.Tailwind import Tailwind
 from frontier.presets.React import React
 from frontier.presets.Preset import Preset
 from frontier.presets.ReactTailwind import ReactTailwind
+from frontier.presets.ReactBootstrap import ReactBootstrap
 from frontier.presets.Bootstrap import Bootstrap
 from django.core.management import BaseCommand, CommandError
 from django.core.management.base import CommandParser
@@ -22,6 +23,7 @@ class Command(BaseCommand):
         - tailwindcss
         - bootstrap
         - react-tailwindcss
+        - react-bootstrap
     """
     missing_args_message = f"{missing_args_intro} {available_presets}"
 
@@ -29,13 +31,13 @@ class Command(BaseCommand):
         parser.add_argument(
             'preset', nargs="?",
             help="""Specify the front-end framework to scarfold 
-                        (none, react, tailwindcss, bootstrap, react-tailwindcss)"""
+                        (none, react, tailwindcss, bootstrap, react-tailwindcss, react-bootstrap)"""
         )
 
     def handle(self, *args, **options):
         self.preset = options["preset"]
 
-        if(self.preset is not None and (self.preset not in ["none", "react", "tailwindcss", "bootstrap", "react-tailwindcss"])):
+        if(self.preset is not None and (self.preset not in ["none", "react", "tailwindcss", "bootstrap", "react-tailwindcss", "react-bootstrap"])):
             self.stdout.write(self.style.WARNING(
                 f"{self.invalid_args_intro} {self.preset} {self.available_presets}"))
 
@@ -74,6 +76,9 @@ class Command(BaseCommand):
 
         elif self.preset == "react-tailwindcss":
             self.react_tailwind()
+
+        elif self.preset == "react-bootstrap":
+            self.react_bootstrap()
 
         else:
             self.stdout.write(self.style.WARNING(
@@ -114,5 +119,13 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS(
             f"React with tailwindcss scaffolding installed successfully."))
+        self.stdout.write(
+            "Please run 'npm install && npm run watch' to compile your fresh scaffolding.")
+    
+    def react_bootstrap(self, *args, **options):
+        ReactBootstrap().install(self.resource_path, self.base_dir)
+
+        self.stdout.write(self.style.SUCCESS(
+            f"React with bootstrap scaffolding installed successfully."))
         self.stdout.write(
             "Please run 'npm install && npm run watch' to compile your fresh scaffolding.")
