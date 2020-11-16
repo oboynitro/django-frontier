@@ -1,0 +1,17 @@
+{
+  "name": "frontier",
+  "version": "1.0.0",
+  "description": "Front-end scaffolding for django",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel serve resources/css/app.css -d static/dist",
+    "watch": "parcel watch resources/css/app.css -d static/dist",
+    "build": "parcel build resources/css/app.css -d static/build"
+  },
+  "dependencies": {
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
