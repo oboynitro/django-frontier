@@ -23,3 +23,4 @@ You can follow me on all socail media at:
 `youtube <https://www.youtube.com/channel/UCa13FPKVOkccSg65jV2MucA>`_
 
 `linkedin <https://www.linkedin.com/in/frank-owusu-boakye-79167619b/>`_
+
