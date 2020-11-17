@@ -1,4 +1,3 @@
-from frontier.presets.Preset import Preset
 from pathlib import Path
 import shutil
 
@@ -18,7 +17,8 @@ class Bootstrap():
         self.components_config = Path.joinpath(
             Path(__file__).resolve().parent, "samples/bootstrap/config")
 
-        shutil.copytree(str(self.components_source), str(self.components_dir))  
-        shutil.copytree(str(self.scss_components_source), str(self.sass_components_dir))  
+        shutil.copytree(str(self.components_source), str(self.components_dir))
+        shutil.copytree(str(self.scss_components_source),
+                        str(self.sass_components_dir))
         for file in self.components_config.glob("*"):
             shutil.copy2(str(file), str(self.base_dir))

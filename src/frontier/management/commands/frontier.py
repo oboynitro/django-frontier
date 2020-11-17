@@ -1,10 +1,11 @@
 from frontier.presets.Tailwind import Tailwind
 from frontier.presets.React import React
+from frontier.presets.Vue import Vue
 from frontier.presets.Preset import Preset
 from frontier.presets.ReactTailwind import ReactTailwind
 from frontier.presets.ReactBootstrap import ReactBootstrap
 from frontier.presets.Bootstrap import Bootstrap
-from django.core.management import BaseCommand, CommandError
+from django.core.management import BaseCommand
 from django.core.management.base import CommandParser
 
 
@@ -20,6 +21,7 @@ class Command(BaseCommand):
     ** Available Presets:
         - none
         - react
+        - vue
         - tailwindcss
         - bootstrap
         - react-tailwindcss
@@ -30,14 +32,14 @@ class Command(BaseCommand):
     def add_arguments(self, parser: CommandParser):
         parser.add_argument(
             'preset', nargs="?",
-            help="""Specify the front-end framework to scarfold 
-                        (none, react, tailwindcss, bootstrap, react-tailwindcss, react-bootstrap)"""
+            help="""Specify the front-end framework to scarfold
+                        (none, react, vue, tailwindcss, bootstrap, react-tailwindcss, react-bootstrap)"""
         )
 
     def handle(self, *args, **options):
         self.preset = options["preset"]
 
-        if(self.preset is not None and (self.preset not in ["none", "react", "tailwindcss", "bootstrap", "react-tailwindcss", "react-bootstrap"])):
+        if(self.preset is not None and (self.preset not in ["none", "react", "vue", "tailwindcss", "bootstrap", "react-tailwindcss", "react-bootstrap"])):
             self.stdout.write(self.style.WARNING(
                 f"{self.invalid_args_intro} {self.preset} {self.available_presets}"))
 
@@ -68,9 +70,12 @@ class Command(BaseCommand):
         elif self.preset == "react":
             self.react()
 
+        elif self.preset == "vue":
+            self.vue()
+
         elif self.preset == "tailwindcss":
             self.tailwind()
-        
+
         elif self.preset == "bootstrap":
             self.bootstrap()
 
@@ -105,12 +110,19 @@ class Command(BaseCommand):
             f"Tailwindcss scaffolding installed successfully."))
         self.stdout.write(
             "Please run 'npm install && npm run watch' to compile your fresh scaffolding.")
-    
+
     def bootstrap(self, *args, **options):
         Bootstrap().install(self.resource_path, self.base_dir)
 
         self.stdout.write(self.style.SUCCESS(
             f"Bootstrap scaffolding installed successfully."))
+        self.stdout.write(
+            "Please run 'npm install && npm run watch' to compile your fresh scaffolding.")
+
+    def vue(self, *args, **options):
+        Vue().install(self.resource_path, self.base_dir)
+        self.stdout.write(self.style.SUCCESS(
+            f"Vue scaffolding installed successfully."))
         self.stdout.write(
             "Please run 'npm install && npm run watch' to compile your fresh scaffolding.")
 
@@ -121,7 +133,7 @@ class Command(BaseCommand):
             f"React with tailwindcss scaffolding installed successfully."))
         self.stdout.write(
             "Please run 'npm install && npm run watch' to compile your fresh scaffolding.")
-    
+
     def react_bootstrap(self, *args, **options):
         ReactBootstrap().install(self.resource_path, self.base_dir)
 
