@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const Example = () => {
-    return (
-        <div>
-            <h1>Example Component</h1>
-        </div>
-    )
-}
+	return (
+		<div>
+			<h1 className="bg-blue-500 text-gray-200">Example Component</h1>
+		</div>
+	);
+};
 
-export default Example
+export default Example;

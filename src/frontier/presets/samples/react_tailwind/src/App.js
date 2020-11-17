@@ -1,11 +1,8 @@
-import React from 'react'
-import Example from './components/Example'
-import "./app.css"
+import React from "react";
+import Example from "./components/Example";
 
 const App = () => {
-    return (
-        <Example/>
-    )
-}
+	return <Example />;
+};
 
-export default App
+export default App;

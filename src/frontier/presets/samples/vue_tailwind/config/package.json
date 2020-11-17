@@ -1,0 +1,25 @@
+{
+  "name": "frontier",
+  "version": "1.0.0",
+  "description": "Front-end scaffolding for django",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel serve resources/js/index.js -d static/dist",
+    "watch": "parcel watch resources/js/index.js -d static/dist",
+    "build": "parcel build resources/js/index.js -d static/build"
+  },
+  "dependencies": {
+    "vue": "^2.6.10",
+    "tailwindcss": "^1.9.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.2.1",
+    "node-sass": "^4.12.0",
+    "sass": "^1.17.4",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
