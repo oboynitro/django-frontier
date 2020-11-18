@@ -1,10 +1,11 @@
 {
-	"name": "frontier",
+	"name": "django-frontier",
 	"version": "0.1.0",
 	"description": "Front-end scaffolding for django",
 	"license": "MIT",
 	"keywords": [
 		"django",
+		"django-frontier",
 		"scaffold",
 		"frontend",
 		"react",
