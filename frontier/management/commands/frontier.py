@@ -67,6 +67,8 @@ class Command(BaseCommand):
             Path.unlink(Path.joinpath(self.base_dir, "postcss.config.js"))
         if Path.exists(Path.joinpath(self.base_dir, "tailwind.config.js")):
             Path.unlink(Path.joinpath(self.base_dir, "tailwind.config.js"))
+        if Path.exists(Path.joinpath(self.base_dir, "node_modules/")):
+            shutil.rmtree(self.base_dir, "node_modules/")
 
         if self.preset == "none":
             self.default()
