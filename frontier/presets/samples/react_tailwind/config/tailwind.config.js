@@ -9,6 +9,7 @@ module.exports = {
 			"./resources/css/**/*.css",
 			"./resources/js/**/*.js",
 			"./resources/js/**/*.jsx",
+			"./templates/**/*.html",
 		],
 	},
 	theme: {
