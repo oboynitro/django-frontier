@@ -1,17 +1,20 @@
 {
-  "name": "frontier",
-  "version": "1.0.0",
-  "description": "Front-end scaffolding for django",
-  "main": "index.js",
-  "scripts": {
-    "dev": "parcel serve resources/css/app.css -d static/dist",
-    "watch": "parcel watch resources/css/app.css -d static/dist",
-    "build": "parcel build resources/css/app.css -d static/build"
-  },
-  "dependencies": {
-    "tailwindcss": "^1.9.6"
-  },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4"
-  }
+    "name": "frontier",
+    "version": "0.1.0",
+    "description": "Front-end scaffolding for django",
+    "license": "MIT",
+    "keywords": ["django", "scaffold", "frontend", "react", "vue", "tailwindcss", "bootstrap"],
+    "repository": "https://github.com/oboynitro/django-frontier.git",
+    "homepage": "https://django-frontier.readthedocs.io/en/latest/",
+    "author": "Frank Owusu Boakye <oboy.nitro1@gmail.com>",
+    "scripts": {
+        "build": "rm -rf .cache static/build && npm run parcel && npm run postcss",
+        "postcss": "postcss resources/css/app.css -o static/build/*.css",
+        "parcel": "parcel build resources/css/app.css -d static/build"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.12.4",
+        "tailwindcss": "^1.9.6",
+        "postcss-cli": "^8.3.0"
+    }
 }
