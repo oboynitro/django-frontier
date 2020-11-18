@@ -12,7 +12,7 @@ I’m Frank Owusu Boakye (oboynitro), a Full stack web developer and partime con
 I have a youtube channel (`Web Dev Bundled <https://www.youtube.com/channel/UCa13FPKVOkccSg65jV2MucA>`_) where i teach about web development, django, flask, python, react, vuejs and more.
 
 I am also a huge fan of open source projects and have dedicated my free hours to contributing and creating
-open source softwares to make developer's life easy. You can check out my github portfolio here `My Github <https://github.com/oboynitro>`_
+open source softwares to make developer's life easy. You can check out my github portfolio *https://github.com/oboynitro*
 
 You can follow me on all socail media at:
 
@@ -23,3 +23,4 @@ You can follow me on all socail media at:
 `youtube <https://www.youtube.com/channel/UCa13FPKVOkccSg65jV2MucA>`_
 
 `linkedin <https://www.linkedin.com/in/frank-owusu-boakye-79167619b/>`_
+
