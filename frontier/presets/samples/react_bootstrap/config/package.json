@@ -1,25 +1,36 @@
 {
-  "name": "frontier",
-  "version": "1.0.0",
-  "description": "Front-end scaffolding for django",
-  "main": "index.js",
-  "scripts": {
-    "dev": "parcel serve resources/js/index.js -d static/dist",
-    "watch": "parcel watch resources/js/index.js -d static/dist",
-    "build": "parcel build resources/js/index.js -d static/build"
-  },
-  "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "bootstrap": "^4.5.1",
-    "jquery": "^3.2",
-    "popper.js": "^1.14"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.5",
-    "babel-loader": "^8.2.1",
-    "parcel-bundler": "^1.12.4"
-  }
+	"name": "frontier",
+	"version": "0.1.0",
+	"description": "Front-end scaffolding for django",
+	"license": "MIT",
+	"keywords": [
+		"django",
+		"scaffold",
+		"frontend",
+		"react",
+		"vue",
+		"tailwindcss",
+		"bootstrap"
+	],
+	"repository": "https://github.com/oboynitro/django-frontier.git",
+	"homepage": "https://django-frontier.readthedocs.io/en/latest/",
+	"author": "Frank Owusu Boakye <oboy.nitro1@gmail.com>",
+	"scripts": {
+		"dev": "rm -rf .cache static/dist && parcel watch resources/js/index.js -d static/dist",
+		"build": "rm -rf .cache static/build && parcel build resources/js/index.js -d static/build"
+	},
+	"dependencies": {
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"bootstrap": "^4.5.1",
+		"jquery": "^3.2",
+		"popper.js": "^1.14"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.12.3",
+		"@babel/preset-env": "^7.12.1",
+		"@babel/preset-react": "^7.12.5",
+		"babel-loader": "^8.2.1",
+		"parcel-bundler": "^1.12.4"
+	}
 }
