@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Hello World</h1>
+        <h1 class="text-danger">Hello World</h1>
         <button class="btn btn-danger">Bootstrap button</button>
     </div>
 </template>

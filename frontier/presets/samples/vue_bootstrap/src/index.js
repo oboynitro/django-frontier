@@ -3,7 +3,6 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Vue from "vue";
-import "./app.css";
 import App from "./App.vue";
 
 new Vue({
