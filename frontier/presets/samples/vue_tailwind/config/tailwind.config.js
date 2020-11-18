@@ -5,7 +5,12 @@ module.exports = {
 	},
 	purge: {
 		enabled: true,
-		content: ["./resources/css/**/*.css", "./resources/js/**/*.js"],
+		content: [
+			"./resources/css/**/*.css",
+			"./resources/js/**/*.js",
+			"./resources/js/**/*.vue",
+			"./templates/**/*.html",
+		],
 	},
 	theme: {
 		extend: {},
