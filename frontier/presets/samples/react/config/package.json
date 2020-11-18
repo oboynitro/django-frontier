@@ -1,12 +1,15 @@
 {
-  "name": "frontier",
-  "version": "1.0.0",
-  "description": "Front-end scaffolding for django",
-  "main": "index.js",
+    "name": "frontier",
+    "version": "0.1.0",
+    "description": "Front-end scaffolding for django",
+    "license": "MIT",
+    "keywords": ["django", "scaffold", "frontend", "react", "vue", "tailwindcss", "bootstrap"],
+    "repository": "https://github.com/oboynitro/django-frontier.git",
+    "homepage": "https://django-frontier.readthedocs.io/en/latest/",
+    "author": "Frank Owusu Boakye <oboy.nitro1@gmail.com>",
   "scripts": {
-    "dev": "parcel serve resources/js/index.js -d static/dist",
-    "watch": "parcel watch resources/js/index.js -d static/dist",
-    "build": "parcel build resources/js/index.js -d static/build"
+    "dev": "rm -rf .cache static/dist && parcel watch resources/js/index.js -d static/dist",
+    "build": "rm -rf .cache static/build && parcel build resources/js/index.js -d static/build"
   },
   "dependencies": {
     "react": "^17.0.1",
