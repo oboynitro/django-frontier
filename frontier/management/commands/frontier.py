@@ -1,4 +1,4 @@
-from frontier.utils import create_or_save_resource_path, prepare_scaffold, remove_scaffold_files
+from frontier.utils import remove_scaffold_files
 from frontier.presets import *
 from django.core.management import BaseCommand
 from django.core.management.base import CommandParser
