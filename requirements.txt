@@ -1,0 +1,4 @@
+django
+sphinx
+sphinx-rtd-theme
+sphinx-glpi-theme
