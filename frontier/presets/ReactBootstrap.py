@@ -16,7 +16,8 @@ class ReactBootstrap():
             Path(__file__).resolve().parent, "samples/react/config")
 
         shutil.copytree(str(components_source), str(components_dir))
-        shutil.copy2(str(f"{base_packages_path}/package.json"), str(base_dir))
+        for conf_file in base_packages_path.glob("*"):
+            shutil.copy2(str(conf_file), str(base_dir))
         shutil.copy2(str(f"{babel_source}/.babelrc"), str(base_dir))
         dependencies = {
             "react": "^17.0.1",

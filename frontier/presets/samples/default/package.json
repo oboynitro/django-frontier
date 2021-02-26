@@ -1,27 +1,17 @@
 {
-	"name": "django-frontier",
-	"version": "0.3.0",
-	"description": "Front-end scaffolding for django",
-	"license": "MIT",
-	"keywords": [
-		"django",
-		"django-frontier",
-		"scaffold",
-		"frontend",
-		"react",
-		"vue",
-		"tailwindcss",
-		"bootstrap"
-	],
-	"repository": "https://github.com/oboynitro/django-frontier.git",
-	"homepage": "https://django-frontier.readthedocs.io/en/latest/",
-	"author": "Frank Owusu Boakye <oboy.nitro1@gmail.com>",
+	"private": true,
 	"scripts": {
-		"dev": "rm -rf .cache static/dist && parcel watch resources/js/index.js -d static/dist",
-		"build": "rm -rf .cache static/build && parcel build resources/js/index.js -d static/build"
-	},
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
 	"dependencies": {},
 	"devDependencies": {
-		"parcel-bundler": "^1.12.4"
+        "laravel-mix": "^6.0.6",
+        "postcss": "^8.1.14"
 	}
 }

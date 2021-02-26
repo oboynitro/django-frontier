@@ -10,6 +10,8 @@ def prepare_scaffold(base_dir, resource_path):
 def remove_scaffold_files(base_dir):
     if Path.exists(Path.joinpath(base_dir, "package.json")):
         Path.unlink(Path.joinpath(base_dir, "package.json"))
+    if Path.exists(Path.joinpath(base_dir, "webpack.mix.js")):
+        Path.unlink(Path.joinpath(base_dir, "webpack.mix.js"))
     if Path.exists(Path.joinpath(base_dir, ".babelrc")):
         Path.unlink(Path.joinpath(base_dir, ".babelrc"))
     if Path.exists(Path.joinpath(base_dir, "postcss.config.js")):

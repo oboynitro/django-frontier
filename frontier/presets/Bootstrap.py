@@ -2,7 +2,6 @@ from .Preset import update_packages
 from pathlib import Path
 import shutil
 from frontier.utils import prepare_scaffold
-import json
 
 
 class Bootstrap():
@@ -20,7 +19,8 @@ class Bootstrap():
         shutil.copytree(str(components_source), str(components_dir))
         shutil.copytree(str(scss_components_source),
                         str(sass_components_dir))
-        shutil.copy2(str(f"{base_packages_path}/package.json"), str(base_dir))
+        for conf_file in base_packages_path.glob("*"):
+            shutil.copy2(str(conf_file), str(base_dir))
         dependencies = {
             "bootstrap": "^4.5.1",
             "jquery": "^3.2",

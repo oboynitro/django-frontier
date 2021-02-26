@@ -18,7 +18,8 @@ class Vue():
         shutil.copytree(str(vue_source), str(components_dir))
         for file in vue_config.glob("*"):
             shutil.copy2(str(file), str(base_dir))
-        shutil.copy2(str(f"{base_packages_path}/package.json"), str(base_dir))
+        for conf_file in base_packages_path.glob("*"):
+            shutil.copy2(str(conf_file), str(base_dir))
         dependencies = {
             "vue": "^2.6.10"
         }

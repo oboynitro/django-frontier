@@ -18,7 +18,8 @@ class React():
         shutil.copytree(str(react_source), str(components_dir))
         for file in react_config.glob("*"):
             shutil.copy2(str(file), str(base_dir))
-        shutil.copy2(str(f"{base_packages_path}/package.json"), str(base_dir))
+        for conf_file in base_packages_path.glob("*"):
+            shutil.copy2(str(conf_file), str(base_dir))
         dependencies = {
             "react": "^17.0.1",
             "react-dom": "^17.0.1"
