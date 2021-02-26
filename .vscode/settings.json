@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Vuejs"
-    ]
+    ],
+    "python.pythonPath": "venv\\Scripts\\python.exe"
 }
