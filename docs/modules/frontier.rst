@@ -52,15 +52,19 @@ This generates a resources directory with your react application scaffold. Your 
         components/
           Example.js
        manage.py
+       webpack.mix.js
        package.json
        .babelrc
-
        ..
 
 
 **4.** You can then compile your assets by running
 ::
-    $ npm run watch
+    $ npm run dev
+
+            or
+
+    $ npm run watch // for watch mode
 
 This spits out the complied assets in a static/dist directory at the root of your project
 ::
@@ -71,7 +75,7 @@ This spits out the complied assets in a static/dist directory at the root of you
 
 You can modify the output of the compiled assets in your *'package.json'* file.
 
-**NOTE**: django-frontier uses `parcel js <https://parceljs.org>`_ to compile and bundle all of it assets. You can read more about `parcel js <https://parceljs.org>`_ on thier website
+**NOTE**: django-frontier uses `laravel-mix js <https://laravel-mix.com>`_ to compile and bundle all of it assets. You can read more about `laravel mix <https://laravel-mix.com>`_ on thier website
 
 **5.** After compilation, setup your *STATIC_URL* and *STATICFILES_DIRS* in your django project settings.
 ::
