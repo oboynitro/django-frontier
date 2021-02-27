@@ -58,32 +58,48 @@ your_project/
             components/
                 Example.js
     manage.py
+    webpack.mix.js
     package.json
     .babelrc
 
     ...
 ```
 
-4. You can then compile your assets by running
+4. Configure your static assets by editing webpack.mix.js file.
+
+```js
+const mix = require('laravel-mix');
+
+mix.js('resources/js/index.jsx', 'static/js')
+    .postCss('resources/js/index.css', 'static/css', [
+        //
+    ]);
+```
+
+**NOTE**: django-frontier uses `laravel-mix js <https://laravel-mix.com>`_ to compile and bundle all of it assets. You can read more about `laravel mix <https://laravel-mix.com>`_ on thier website
+
+
+5. You can then compile your assets by running
 
 ```bash
 $ npm run watch
 ```
 
-This spits out the complied assets in a static/dist directory at the root of your project
+This spits out the complied assets in a static/js and static/css directory at the root of your project
 
 ```
 static/
-    dist/
+      js/
         index.js
         index.map.js
+      css/
+        index.css
+        index.map.css
 ```
 
-You can modify the output of the compiled assets in your _‘package.json’_ file.
+You can modify the output of the compiled assets in your _‘webpack.mix.js’_ file.
 
-NOTE: django-frontier uses [parcel js](https://parceljs.org) to compile and bundle all of it assets. You can read more about [parcel js](https://parceljs.org) on their website
-
-5. After compilation, setup your _STATIC_URL_ and _STATICFILES_DIRS_ in your django project settings.
+6. After compilation, setup your _STATIC_URL_ and _STATICFILES_DIRS_ in your django project settings.
 
 ```python
 # settings.py
@@ -91,7 +107,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = BASE_DIR / 'static' #new in django 3.0 which uses pathlib module
 ```
 
-6. Setup your template
+7. Setup your template
 
 ```html
 <!DOCTYPE html>
@@ -100,18 +116,18 @@ STATICFILES_DIRS = BASE_DIR / 'static' #new in django 3.0 which uses pathlib mod
 	<head>
 		...
 		<!-- if your dist folder includes css files -->
-		<link rel="stylesheet" href="{% static 'dist/app.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/index.css' %}" />
 		...
 	</head>
 	<body>
 		<!-- for your react / vue app, set up to include the compiled js files -->
 		<div id="app"></div>
-		<script src="{% static 'dist/index.js' %}"></script>
+		<script src="{% static 'js/index.js' %}"></script>
 	</body>
 </html>
 ```
 
-7. For production, run the **build** command to minify the js and css for a smaller bundle and replace _dist/_ with _build/_ in your templates
+8. For production, run the **build** command to minify the js and css for a smaller bundle
 
 ```bash
 $ npm run build
