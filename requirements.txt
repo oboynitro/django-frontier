@@ -1,4 +1,6 @@
 django
-sphinx
-sphinx-rtd-theme
-sphinx-glpi-theme
+
+//for_documentation...
+//sphinx
+//sphinx-rtd-theme
+//sphinx-glpi-theme

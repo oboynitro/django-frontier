@@ -1,2 +1,6 @@
 /venv/
 /venv/*
+/docs/
+/docs/*
+/.vscode
+/.vscode/*

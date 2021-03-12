@@ -3,8 +3,8 @@ import App from "./App.vue";
 import "tailwindcss/tailwind.css";
 
 new Vue({
-	el: "#app",
-	components: {
-		App,
-	},
-});
+    el: "#app",
+    components: {
+        App,
+    },
+}).mount("#app");
