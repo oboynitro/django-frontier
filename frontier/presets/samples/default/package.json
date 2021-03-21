@@ -12,8 +12,6 @@
 	"dependencies": {},
 	"devDependencies": {
 		"autoprefixer": "^10.0.2",
-		"laravel-mix": "^6.0.6",
-		"postcss": "^8.1.14",
-		"postcss-import": "^12.0.1"
+		"laravel-mix": "^6.0.6"
 	}
 }

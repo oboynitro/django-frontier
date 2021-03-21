@@ -3,12 +3,11 @@ from pathlib import Path
 import shutil
 from frontier.utils import prepare_scaffold
 
-
 class Bootstrap():
     def install(self, resource_path, base_dir):
         prepare_scaffold(base_dir, resource_path)
-        components_dir = Path.joinpath(resource_path, "js/")
-        sass_components_dir = Path.joinpath(resource_path, "scss/")
+        components_dir = resource_path / "js/"
+        sass_components_dir = resource_path / "scss/"
         base_packages_path = Path.joinpath(
             Path(__file__).resolve().parent, "samples/default")
         components_source = Path.joinpath(

@@ -13,6 +13,9 @@ const mix = require('laravel-mix');
 // sets the output directory for your compiled assets
 mix.setPublicPath('static');
 
+// your mix configuration goes here
+
+
 // used only in production (to add versioning to complied files)
 if (mix.inProduction()) {
     mix.version();
@@ -31,6 +34,9 @@ mix.js('resources/js/index.js', 'static/');
 NB** mix config can be chained eg: mix.js(...).css(...).sass(...).postCss(...) e.t.c
 for more information on laravel-mix, visit "https://lravel-mix.com"
 
+
+
+----------------------------------------------------------------------------
 Example mix settings
 
 ----bootstrap mix
@@ -44,9 +50,9 @@ mix.postCss('resources/css/app.css', 'static/', [
         require('autoprefixer'),
     ]);
 
-----vuejs / vue_bootstrap / vue_tailwind (mix)
+----vuejs mix
 mix.js('resources/js/src/index.js', 'static/').vue();
 
-----reactjs / react_bootstrap / react_tailwind (mix)
+----reactjs mix
 mix.js('resources/js/src/index.js', 'static/').react();
 */

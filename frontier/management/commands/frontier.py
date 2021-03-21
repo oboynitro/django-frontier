@@ -1,16 +1,17 @@
-from frontier.utils import remove_scaffold_files
-from frontier.presets import *
-from django.core.management import BaseCommand
-from django.core.management.base import CommandParser
-
-
 import shutil
 from pathlib import Path
+
+from django.core.management import BaseCommand
+from django.core.management.base import CommandParser
+from django.conf import settings
+
+from frontier.presets import *
+from frontier.utils import remove_scaffold_files
 
 
 class Command(BaseCommand):
     help = "Swap the front-end scaffolding for your django project"
-    available_presets = ("none", "react", "vue", "tailwindcss", "bootstrap", "react_tailwindcss", "vue_tailwindcss", "react_bootstrap", "vue_bootstrap")
+    available_presets = ("none", "react", "vue", "tailwindcss", "bootstrap")
     missing_args_message = "Preset missing, please provide a preset to use for scarfolding, {presets}".format(presets=", ".join(available_presets))
     requires_system_checks = False
 
@@ -27,8 +28,8 @@ class Command(BaseCommand):
             return self.stdout.write(self.style.WARNING(
                 "Invalid preset please choose between ({presets})".format(
                     presets=", ".join(self.available_presets))))
-        self.scaffold_base = Path().resolve()
-        self.scaffold_resource = Path.joinpath(self.scaffold_base, "resources/")
+        self.scaffold_base = settings.BASE_DIR
+        self.scaffold_resource = self.scaffold_base / "resources"
 
         if self.type == "none":
             return self.none()
@@ -67,24 +68,4 @@ class Command(BaseCommand):
     def vue(self):
         Vue().install(self.scaffold_resource, self.scaffold_base)
         self.stdout.write(self.style.SUCCESS(
-            f"Vuejs scaffolding installed successfully."))
-
-    def react_tailwindcss(self):
-        ReactTailwind().install(self.scaffold_resource, self.scaffold_base)
-        self.stdout.write(self.style.SUCCESS(
-            f"React with Tailwindcss scaffolding installed successfully."))
-
-    def react_bootstrap(self):
-        ReactBootstrap().install(self.scaffold_resource, self.scaffold_base)
-        self.stdout.write(self.style.SUCCESS(
-            f"React with Bootstrap scaffolding installed successfully."))
-
-    def vue_tailwindcss(self):
-        VueTailwind().install(self.scaffold_resource, self.scaffold_base)
-        self.stdout.write(self.style.SUCCESS(
-            f"Vuejs with Tailwindcss scaffolding installed successfully."))
-
-    def vue_bootstrap(self):
-        VueBootstrap().install(self.scaffold_resource, self.scaffold_base)
-        self.stdout.write(self.style.SUCCESS(
-            f"Vuejs with Bootstrap scaffolding installed successfully."))
+            f"Vue scaffolding installed successfully."))

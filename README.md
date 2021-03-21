@@ -3,8 +3,6 @@
 ![Build Status](https://img.shields.io/github/stars/oboynitro/django-frontier)
 ![Build Issues](https://img.shields.io/github/issues/oboynitro/django-frontier)
 ![Build Forks](https://img.shields.io/github/forks/oboynitro/django-frontier)
-[![Documentation Status](https://readthedocs.org/projects/django-frontier/badge/?version=latest)](https://django-frontier.readthedocs.io/en/latest/?badge=latest)
-
 ## The django front-end scaffold tool you requested.
 
 Tired of always having to setup your front end apps **(react, vue, bootstrap tailwindcss)** for your django projects, not any more. Every django developer knows how annoying it is to setup a front end for your django apps with the latest and greatest frontend frameworks, with [django-frontier](https://pypi.org/django-frontier) you get to set up your frontend scaffold with a single command. A breeze 😇
@@ -33,18 +31,12 @@ INSTALLED_APPS = [
 ]
 ```
 
-3. Now you can use the frontier command by navigating to the root of your project directory, where ‘manage.py’ file is and run the frontier with either preset _(react, tailwind, or react-tailwind)_
+3. Now you can use the frontier command by navigating to the root of your project directory, where ‘manage.py’ file is and run the frontier with either preset _(vue, react, tailwind, or bootstrap)_
 
 for example, a react scaffold looks like this:
 
 ```bash
 $ python manage.py frontier react
-```
-
-or
-
-```bash
-$ ./manage.py frontier react
 ```
 
 This generates a resources directory with your react application scaffold. Your directory structure looks like this:
@@ -70,10 +62,7 @@ your_project/
 ```js
 const mix = require('laravel-mix');
 
-mix.js('resources/js/index.jsx', 'static/js')
-    .postCss('resources/js/index.css', 'static/css', [
-        //
-    ]);
+mix.js('resources/js/index.js', 'static/').react();
 ```
 
 **NOTE**: django-frontier uses `laravel-mix js <https://laravel-mix.com>`_ to compile and bundle all of it assets. You can read more about `laravel mix <https://laravel-mix.com>`_ on thier website
@@ -85,7 +74,7 @@ mix.js('resources/js/index.jsx', 'static/js')
 $ npm run watch
 ```
 
-This spits out the complied assets in a static/js and static/css directory at the root of your project
+This spits out the complied assets in a static/ directory at the root of your project
 
 ```
 static/
@@ -104,7 +93,7 @@ You can modify the output of the compiled assets in your _‘webpack.mix.js’_ 
 ```python
 # settings.py
 STATIC_URL = '/static/'
-STATICFILES_DIRS = BASE_DIR / 'static' #new in django 3.0 which uses pathlib module
+STATICFILES_DIRS = [BASE_DIR / 'static/'] #new in django 3.0 which uses pathlib module
 ```
 
 7. Setup your template
@@ -139,12 +128,6 @@ $ npm run build
 
 ```bash
 $ python manage.py frontier -h
-```
-
-or
-
-```bash
-$ ./manage.py frontier -h
 ```
 
 ### Enjoy 😇

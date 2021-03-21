@@ -1,9 +1,8 @@
-from pathlib import Path
 import json
 
 
 def update_packages(base_dir, dependencies={}, devDependencies={}, scripts={}):
-    packages_path = Path.joinpath(base_dir, "package.json")
+    packages_path = base_dir / "package.json"
     packages_file = open(f"{packages_path}",)
     packages = json.load(packages_file)
 
