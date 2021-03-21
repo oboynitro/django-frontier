@@ -7,7 +7,7 @@ from frontier.utils import prepare_scaffold
 class React():
     def install(self, resource_path, base_dir):
         prepare_scaffold(base_dir, resource_path)
-        components_dir = resource_path / "js/"
+        components_dir = resource_path / "js"
         base_packages_path = Path.joinpath(
             Path(__file__).resolve().parent, "samples/default")
         react_source = Path.joinpath(

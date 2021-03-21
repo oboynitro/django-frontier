@@ -18,11 +18,11 @@ def remove_scaffold_files(base_dir):
         Path.unlink(base_dir / "postcss.config.js")
     if Path.exists(base_dir / "tailwind.config.js"):
         Path.unlink(base_dir / "tailwind.config.js")
-    if Path.exists(base_dir / "node_modules/"):
-        shutil.rmtree(base_dir / "node_modules/")
+    if Path.exists(base_dir / "node_modules"):
+        shutil.rmtree(base_dir / "node_modules")
 
 
 def create_or_save_resource_path(resource_path):
     if not Path.exists(resource_path):
         return Path.mkdir(resource_path)
-    return shutil.rmtree(f"{resource_path}/")
+    return shutil.rmtree(resource_path)

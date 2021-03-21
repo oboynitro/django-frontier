@@ -21,14 +21,26 @@ class Command(BaseCommand):
             'type', type=str,
             help="The preset type ({presets})".format(presets=", ".join(self.available_presets))
         )
+        self.parser.add_argument(
+            '--appname',
+            help="The app to generate the scaffold in (configured in setings file 'INSTALLED_APP')" 
+        )
 
     def handle(self, *args, **options):
         self.type = options["type"]
+        self.appname = options["appname"]
+
         if(self.type is not None and (self.type not in self.available_presets)):
             return self.stdout.write(self.style.WARNING(
                 "Invalid preset please choose between ({presets})".format(
                     presets=", ".join(self.available_presets))))
-        self.scaffold_base = settings.BASE_DIR
+        if(self.appname is not None and self.appname not in settings.INSTALLED_APPS):
+            return self.stdout.write(self.style.WARNING(
+                f"App {self.appname} not found, did you forget to add it to your installed apps ?"))
+        if(self.appname):
+            self.scaffold_base = settings.BASE_DIR / self.appname
+        else:
+            self.scaffold_base = settings.BASE_DIR
         self.scaffold_resource = self.scaffold_base / "resources"
 
         if self.type == "none":
