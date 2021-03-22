@@ -7,7 +7,7 @@ from .Preset import update_packages
 class Tailwind():
     def install(self, resource_path, base_dir):
         prepare_scaffold(base_dir, resource_path)
-        components_dir = resource_path / "css/"
+        components_dir = resource_path / "css"
         base_packages_path = Path.joinpath(
             Path(__file__).resolve().parent, "samples/default")
         tailwind_source = Path.joinpath(
