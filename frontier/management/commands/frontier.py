@@ -36,7 +36,7 @@ class Command(BaseCommand):
                     presets=", ".join(self.available_presets))))
         if(self.appname is not None and self.appname not in settings.INSTALLED_APPS):
             return self.stdout.write(self.style.WARNING(
-                f"App {self.appname} not found, did you forget to add it to your installed apps ?"))
+                f"App {self.appname} not found, did you forget to add it to your installed apps?"))
         if(self.appname):
             self.scaffold_base = settings.BASE_DIR / self.appname
         else:
